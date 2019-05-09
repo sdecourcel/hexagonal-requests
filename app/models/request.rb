@@ -3,6 +3,12 @@ class Request < ApplicationRecord
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3}
 
   validates :email, presence: true
+  validates :email, format: { with: /\A.+@.+.+.\z/,
+    message: "Veuillez saisir un email valide" }
+  validates :phone, presence: true
+  validates :phone, format: { with: /\A\d{2}\s*\d{2}\s*\d{2}\s*\d{2}\z/,
+      message: "Veuillez saisir un téléphone valide" }
+
 
 
   # scope :unconfirmed, -> { where(status: "unconfirmed") }
@@ -15,12 +21,5 @@ class Request < ApplicationRecord
     # update(status: "accepted")
   end
 
-  private
-
-
-
-  def asked_cannot_be_greater_than_price
-    errors.add(:price, "Le montant total ne peut être inférieur au total déjà demandé au destinataire.") if (price_cents && asked_cents && (asked_cents > price_cents))
-  end
 
 end
