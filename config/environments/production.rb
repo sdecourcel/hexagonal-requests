@@ -1,6 +1,18 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['MAILTRAP_USERNAME'],
+    :password => ENV['MAILTRAP_PASSWORD'],
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
+  config.action_mailer.default_url_options = { host: ENV['HOST'] }
+  config.action_mailer.asset_host = nil
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -62,6 +74,7 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "hexagonal-requests_#{Rails.env}"
+  config.active_job.queue_adapter = :sidekiq
 
   config.action_mailer.perform_caching = false
 
