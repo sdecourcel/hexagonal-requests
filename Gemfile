@@ -27,3 +27,9 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+# Added at 2019-05-09 23:12:54 +0200 by Sibylle:
+gem "figaro", "~> 1.1"
+
+# Added at 2019-05-09 23:27:21 +0200 by Sibylle:
+gem "letter_opener", "~> 1.7"
