@@ -6,7 +6,7 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    if @request.save && RequestMailer.email_to_confirm(@request).deliver_now
+    if @request.save && RequestMailer.email_to_confirm(@request).deliver_later
       redirect_to email_to_confirm_path
     else
       render :new
@@ -14,7 +14,7 @@ class RequestsController < ApplicationController
   end
 
   def update_status_confirmed
-    Request.find(params[:id]).update(status: "confirmed")  
+    Request.find(params[:id]).update(status: "confirmed")
   end
 
 

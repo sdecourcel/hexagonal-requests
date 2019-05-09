@@ -33,3 +33,9 @@ gem "figaro", "~> 1.1"
 
 # Added at 2019-05-09 23:27:21 +0200 by Sibylle:
 gem "letter_opener", "~> 1.7"
+
+# Added at 2019-05-09 23:51:19 +0200 by Sibylle:
+gem "sidekiq", "~> 5.2"
+
+# Added at 2019-05-09 23:51:42 +0200 by Sibylle:
+gem "sidekiq-failures", "~> 1.0"
