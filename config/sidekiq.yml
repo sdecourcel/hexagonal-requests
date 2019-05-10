@@ -3,4 +3,4 @@
 :verbose: true
 :queues:
   - default
-  # - mailers
+  - mailers

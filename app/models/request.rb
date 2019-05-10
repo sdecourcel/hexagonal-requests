@@ -10,7 +10,7 @@ class Request < ApplicationRecord
       message: "Veuillez saisir un téléphone valide" }
 
 
-
+  # unuseful scopes as already existing with enum
   # scope :unconfirmed, -> { where(status: "unconfirmed") }
   # scope :confirmed, -> { where(status: "confirmed") }
   # scope :accepted, -> { where(status: "accepted") }
